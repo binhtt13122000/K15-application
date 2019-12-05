@@ -27,12 +27,14 @@ const FormHeader = () => {
                 <Grid stackable>
                     <Grid.Row>
                         <Grid.Column width="5" verticalAlign="middle">
-                            <Image
-                                className={classes.logo} 
-                                src={logo}
-                                centered 
-                                circular    
-                            />
+                            <a href="https://fcodehcm.wordpress.com/">
+                                <Image
+                                    className={classes.logo} 
+                                    src={logo}
+                                    centered 
+                                    circular    
+                                />
+                            </a>
                         </Grid.Column>
                         <Grid.Column width="11" verticalAlign = 'middle'>
                             <Header className={classes.header} as="h1">
@@ -62,7 +64,7 @@ const FormHeader = () => {
                                     <span>fcodehcm.wordpress.com/</span>
                                 </Segment>
                                 <Segment>
-                                    <a href="https://fcodehcm.wordpress.com/">
+                                    <a href="https://mail.google.com/">
                                         <Button 
                                             color="google plus" 
                                             icon="google" 

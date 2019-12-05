@@ -7,7 +7,7 @@ import Footer from '../components/Footer/Footer';
 
 const App = () => {
     return (
-        <div className="page-container">
+        <div>
             <Form />
             <Footer />
         </div>

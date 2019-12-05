@@ -2,18 +2,31 @@ import React from 'react';
 import { Form, Container, Segment, Grid, Button } from 'semantic-ui-react';
 import Messages from '../Messages/Messages';
 import useForm from './useForm'
+import { createUseStyles } from 'react-jss'
 
+const useStyle = createUseStyles({
+    form: {
+        marginTop: 20,
+        paddingBottom: '7.0em'
+    },
+    '@media screen and (max-width: 767px)': {
+        form: {
+            paddingBottom: '1em'    
+        }
+    }
+})
 const MainForm = () => {
+    const classes = useStyle();
     const {studentID, handleInputChange, handleSubmit} = useForm();
     return (
-        <div style={{'marginTop': '20px'}}>
+        <div className={classes.form}>
             <Container>
-                <Segment inverted>
+                <Segment style={{'backgroundColor' : '#e2b091'}}>
                     <Form onSubmit={handleSubmit}>
                         <Grid stackable textAlign='center' verticalAlign='middle'>
                             <Grid.Row>
                                 <Grid.Column width={2}>
-                                    <Button content="Search" color="blue" size="medium" />
+                                    <Button content="Search ID" color="google plus" size="medium" />
                                 </Grid.Column>
                                 <Grid.Column width={11}>
                                     <Form.Input
@@ -24,7 +37,7 @@ const MainForm = () => {
                                     />
                                 </Grid.Column>
                                 <Grid.Column width={3}>
-                                    <Form.Button content="Check" color="green" inverted fluid/>                                    
+                                    <Form.Button content="Check" color="google plus" fluid/>                                    
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
