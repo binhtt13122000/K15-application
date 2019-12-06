@@ -31,7 +31,7 @@ const MainForm = () => {
                                 <Grid.Column width={11}>
                                     <Form.Input
                                         fluid
-                                        value={studentID}
+                                        value={studentID.toUpperCase()}
                                         placeholder="Student ID"
                                         onChange={handleInputChange}
                                     />
@@ -44,7 +44,7 @@ const MainForm = () => {
                     </Form>
                 </Segment>
             </Container>
-            { studentID !== '' ? <Container style={{'marginTop': '10px'}}>
+            { studentID !== '' || studentID.length < 8 ? <Container style={{'marginTop': '10px'}}>
                     <Messages submittedStudentID={studentID}/>
             </Container> : null}
         </div>

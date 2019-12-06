@@ -6,7 +6,10 @@ const Messages = ({submittedStudentID}) => {
     const submittedStudent = data.persons.find(person => {
         return person.studentID === submittedStudentID.toLocaleUpperCase();
     });
-    if(submittedStudent === undefined) return <Message warning content="Don't find information in DataBase" />
+    if(submittedStudent === undefined){
+        if(submittedStudentID.length === 8) return <Message warning content="Don't find information in DataBase" />
+        else return null;
+    }
     else {
         if(submittedStudent.status === 1){
             return <Message info>
