@@ -21,7 +21,7 @@ const useStyle = createUseStyles({
 })
 const FormHeader = () => {
     const classes = useStyle();
-    return <div style={{'paddingTop': '40px'}}>
+    return <div style={{'paddingTop': '20px'}}>
         <Container >
             <Segment color="red" >
                 <Grid stackable>
@@ -38,41 +38,47 @@ const FormHeader = () => {
                         </Grid.Column>
                         <Grid.Column width="11" verticalAlign = 'middle'>
                             <Header className={classes.header} as="h1">
-                                F-CODE - CODE THE DREAM
+                                F-CODE RECRUITMENT 2019 RESULT
                                 <Header.Subheader>FPT University</Header.Subheader>
                             </Header>
                             <Divider />
-                                <Header color="grey" as="h3">Contact Us:</Header>
-                                <Segment>
-                                    <a href="https://www.facebook.com/fcodefpt/">
-                                        <Button 
-                                            color="facebook" 
-                                            icon="facebook" 
-                                            size="big" 
-                                        />
-                                    </a>
-                                    <span>facebook.com/fcodefpt/</span>
-                                </Segment>
-                                <Segment>
-                                    <a href="https://fcodehcm.wordpress.com/">
-                                        <Button 
-                                            color="twitter" 
-                                            icon="wordpress" 
-                                            size="big"
-                                        />
-                                    </a>
-                                    <span>fcodehcm.wordpress.com/</span>
-                                </Segment>
-                                <Segment>
-                                    <a href="https://mail.google.com/">
-                                        <Button 
-                                            color="google plus" 
-                                            icon="google" 
-                                            size="big"
-                                        />
-                                    </a>
-                                    <span>fcode.fptuhcm@gmail.com</span>
-                                </Segment>
+                            <Header color="grey" as="h3">Contact Us:</Header>
+                            <a href="https://www.facebook.com/fcodefpt/">
+                                <Button 
+                                color="facebook" 
+                                icon="facebook" 
+                                size="big" 
+                                circular
+                                />
+                            </a>
+                            <a href="https://fcodehcm.wordpress.com/">
+                                <Button 
+                                    color="twitter" 
+                                    icon="wordpress" 
+                                    size="big"
+                                    circular
+                                />
+                            </a>
+                            <a href="https://mail.google.com/">
+                                <Button 
+                                    color="google plus" 
+                                    icon="google" 
+                                    size="big"
+                                    circular
+                                />
+                            </a>
+                            {/* <Divider />
+                            <Header color="grey" as="h3">F-Code presentation challenge's prizes:</Header>
+                            <br />
+                            <Grid textAlign="center" verticalAlign="middle">
+                                <Grid.Row>
+                                    <Grid.Column>
+                                        <a href="https://www.facebook.com/groups/318311851911657/">
+                                            <Button primary content="Join Goup Facebook" />
+                                        </a>
+                                    </Grid.Column>
+                                </Grid.Row>
+                            </Grid> */}
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

@@ -1,0 +1,23 @@
+
+.Footer {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.App {
+    background-color: #f7dfd4;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 767px) {
+    .App {
+        position: relative;
+    }
+    .Footer {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+
+

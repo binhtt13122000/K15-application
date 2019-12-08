@@ -3,8 +3,8 @@ import FormHeader from './FormHeader/FormHeader';
 import MainForm from './MainForm/MainForm';
 const Form = () => {
     return (
-        <div style={{'backgroundColor': '#f7dfd4'}}>
-            <FormHeader />    
+        <div >
+            <FormHeader/>    
             <MainForm />       
         </div>
     )

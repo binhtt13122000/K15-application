@@ -1,5 +1,5 @@
 import React from 'react';
-import { Message, Button, Grid, Divider } from 'semantic-ui-react';
+import { Message,Grid, Button } from 'semantic-ui-react';
 import data from '../../../data/data'
 
 const Messages = ({submittedStudentID}) => {
@@ -15,22 +15,24 @@ const Messages = ({submittedStudentID}) => {
             return <Message info>
                 <p>Name: {submittedStudent.name}</p>
                 <p>Group: {submittedStudent.group}</p>
-                <h2>Congratulations!! Welcome to F-code!!!</h2>
-                <Divider />
+                <h3>Congratulations!! Welcome to F-code!!!</h3>
                 <br />
-                <Grid textAlign="center">
-                    <a href="https://www.facebook.com/groups/318311851911657/"><Button primary content="Join Goup Facebook" /></a>
+                <Grid textAlign="center" verticalAlign="middle">                
+                    <a href="https://www.facebook.com/groups/318311851911657/">
+                        <Button disabled={false} primary content="Join Goup Facebook" />
+                    </a>
                 </Grid>
             </Message>
         } else {
             return <Message error>
                 <p>Name: {submittedStudent.name}</p>
                 <p>Group: {submittedStudent.group}</p>
-                <h2>Goodbye!!! Good luck to you!!!</h2>
+                <h3>Goodbye!!! Good luck to you!!!</h3>
             </Message>
         }
     }
     
 }
+
 
 export default Messages;

@@ -15,10 +15,9 @@ const Footer = () => {
     const classes = useStyle();
     return (<div className={classes.footer}>
         <Container text>
-            <br></br>
-            <Icon name="heart" color="red"/>F-Code: Code the dream <Icon name="heart" color="red"/>
-            <br></br>
-            Made by HienHT, BinhTT
+            <br />
+            <Icon name="heart" color="red"/>F-Code: Code the dream <Icon name="heart" color="red"/><br />
+            <Icon name="smile" color="violet"/>Welcome K15 members <Icon name="smile" color="violet"/>
         </Container>
     </div>);
 }

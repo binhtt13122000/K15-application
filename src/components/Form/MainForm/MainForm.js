@@ -1,25 +1,14 @@
 import React from 'react';
 import { Form, Container, Segment, Grid, Button } from 'semantic-ui-react';
 import Messages from '../Messages/Messages';
-import useForm from './useForm'
-import { createUseStyles } from 'react-jss'
+import useForm from './useMainForm'
 
-const useStyle = createUseStyles({
-    form: {
-        marginTop: 20,
-        paddingBottom: '7.0em'
-    },
-    '@media screen and (max-width: 767px)': {
-        form: {
-            paddingBottom: '1em'    
-        }
-    }
-})
+
 const MainForm = () => {
-    const classes = useStyle();
+    
     const {studentID, handleInputChange, handleSubmit} = useForm();
     return (
-        <div className={classes.form}>
+        <div style={{'marginTop': '10px'}}>
             <Container>
                 <Segment style={{'backgroundColor' : '#e2b091'}}>
                     <Form onSubmit={handleSubmit}>
@@ -44,7 +33,7 @@ const MainForm = () => {
                     </Form>
                 </Segment>
             </Container>
-            { studentID !== '' || studentID.length < 8 ? <Container style={{'marginTop': '10px'}}>
+            { studentID !== '' || studentID.length < 8 ? <Container style={{'marginTop': '5px'}}>
                     <Messages submittedStudentID={studentID}/>
             </Container> : null}
         </div>

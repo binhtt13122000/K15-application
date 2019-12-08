@@ -3,13 +3,15 @@ import React from 'react';
 //import components
 import Form from '../components/Form/Form'
 import Footer from '../components/Footer/Footer';
-
+import './App.css'
 
 const App = () => {
     return (
-        <div>
+        <div className="App">
             <Form />
-            <Footer />
+            <div className="Footer">
+                <Footer />
+            </div>
         </div>
     )
 }
