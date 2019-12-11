@@ -8,11 +8,19 @@ const useStyle = createUseStyles({
         textAlign: 'left'
     },
     logo: {
-
+        width: 'auto'
     },
     '@media screen and (max-width: 767px)': {
         logo: {
             width: '60%'
+        },
+        header: {
+            textAlign: 'center'
+        },
+    },
+    '@media screen and (max-width: 300px)': {
+        logo: {
+            width: 'auto'
         },
         header: {
             textAlign: 'center'
@@ -67,18 +75,8 @@ const FormHeader = () => {
                                     circular
                                 />
                             </a>
-                            {/* <Divider />
-                            <Header color="grey" as="h3">F-Code presentation challenge's prizes:</Header>
-                            <br />
-                            <Grid textAlign="center" verticalAlign="middle">
-                                <Grid.Row>
-                                    <Grid.Column>
-                                        <a href="https://www.facebook.com/groups/318311851911657/">
-                                            <Button primary content="Join Goup Facebook" />
-                                        </a>
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid> */}
+                            <Divider />
+
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

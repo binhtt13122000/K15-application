@@ -3,7 +3,7 @@ import React from 'react';
 //import components
 import Form from '../components/Form/Form'
 import Footer from '../components/Footer/Footer';
-import './App.css'
+import '../utils/style/App.css'
 
 const App = () => {
     return (

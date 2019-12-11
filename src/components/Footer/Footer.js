@@ -1,19 +1,8 @@
 import React  from 'react';
 import {Icon, Container} from 'semantic-ui-react';
-import {createUseStyles} from 'react-jss'
-
-const useStyle =  createUseStyles({
-    footer: {
-        textAlign: 'center',
-        color: '#874e4c',
-        backgroundColor: '#eabcac',
-        height: '5.8em'
-    }
-})
-
+import '../../utils/style/Footer.css'
 const Footer = () => {
-    const classes = useStyle();
-    return (<div className={classes.footer}>
+    return (<div className="footer">
         <Container text>
             <br />
             <Icon name="heart" color="red"/>F-Code: Code the dream <Icon name="heart" color="red"/><br />

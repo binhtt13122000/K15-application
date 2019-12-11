@@ -1,38 +1,38 @@
 import React from 'react';
 import { Message,Grid, Button } from 'semantic-ui-react';
-import data from '../../../data/data'
+import useMess from './useMess'
 
 const Messages = ({submittedStudentID}) => {
-    const submittedStudent = data.persons.find(person => {
-        return person.studentID === submittedStudentID.toLocaleUpperCase();
+    const {data} = useMess();    
+    
+    const submittedStudent = data.find(person => {
+        return person.id === submittedStudentID;
     });
     if(submittedStudent === undefined){
         if(submittedStudentID.length === 8) return <Message warning content="Don't find information in DataBase" />
         else return null;
     }
     else {
-        if(submittedStudent.status === 1){
+        if(submittedStudent.ispassed === true){
             return <Message info>
-                <p>Name: {submittedStudent.name}</p>
-                <p>Group: {submittedStudent.group}</p>
+                <p>Name: {submittedStudent.studentname}</p>
+                <p>Group: {submittedStudent.groupnumber}</p>
                 <h3>Congratulations!! Welcome to F-code!!!</h3>
                 <br />
                 <Grid textAlign="center" verticalAlign="middle">                
                     <a href="https://www.facebook.com/groups/318311851911657/">
-                        <Button disabled={false} primary content="Join Goup Facebook" />
+                        <Button primary content="Join Goup Facebook" />
                     </a>
                 </Grid>
             </Message>
         } else {
             return <Message error>
-                <p>Name: {submittedStudent.name}</p>
-                <p>Group: {submittedStudent.group}</p>
+                <p>Name: {submittedStudent.studentname}</p>
+                <p>Group: {submittedStudent.groupnumber}</p>
                 <h3>Goodbye!!! Good luck to you!!!</h3>
             </Message>
         }
     }
     
 }
-
-
 export default Messages;
