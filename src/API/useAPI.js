@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useMess = (callback) => {
+const useAPI = (callback) => {
     const [hasError, setError] = useState('');
     const [data, setData] = useState([]);
 
@@ -22,5 +22,5 @@ const useMess = (callback) => {
     };
 }
 
-export default useMess;
+export default useAPI;
 

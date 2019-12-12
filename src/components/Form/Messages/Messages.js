@@ -1,18 +1,17 @@
 import React from 'react';
 import { Message,Grid, Button } from 'semantic-ui-react';
-import useMess from './useMess'
+import useAPI from '../../../API/useAPI'
 
 const Messages = ({submittedStudentID}) => {
-    const {data} = useMess();    
+    const {data} = useAPI();    
+    
     
     const submittedStudent = data.find(person => {
         return person.id === submittedStudentID;
     });
-    if(submittedStudent === undefined){
-        if(submittedStudentID.length === 8) return <Message warning content="Don't find information in DataBase" />
-        else return null;
-    }
-    else {
+
+
+    if(submittedStudent !== undefined){
         if(submittedStudent.ispassed === true){
             return <Message info>
                 <p>Name: {submittedStudent.studentname}</p>
@@ -32,6 +31,9 @@ const Messages = ({submittedStudentID}) => {
                 <h3>Goodbye!!! Good luck to you!!!</h3>
             </Message>
         }
+    }
+    else {
+        return <Message warning content="Don't find information in DataBase" />
     }
     
 }
