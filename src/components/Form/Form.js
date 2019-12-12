@@ -1,20 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import FormHeader from './FormHeader/FormHeader';
 // import MainForm from './MainForm/MainForm';
 import Messages from './Messages/Messages';
-import {Container, Message, Step} from 'semantic-ui-react'
+import logo from '../../utils/img/logo.png';
+import {Container, Message, Step, Loader, Dimmer, Image} from 'semantic-ui-react'
 const Form = () => {
+    
     const [studentID, setStudentID] = useState('');
     const [fptDomain, setFptDomail] = useState('');
+    const [load, setLoad] = useState(true);
     const callback = (value) => {
         const studentID = value.slice(value.indexOf('@') - 8, value.indexOf('@')).toLocaleUpperCase();
         const domain = value.slice(value.indexOf('@')).toLocaleLowerCase();
         setStudentID(studentID);
         setFptDomail(domain);
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        setLoad(true);
+        setTimeout(() => {
+            setLoad(false);
+        }, 5000);
+    }
+    , [studentID]);
     return(
         <div >
-            <FormHeader parentCallback={callback}/>    
+            <FormHeader parentCallback={callback} />
             {/* <MainForm /> */}
             <Container style={{'marginTop': '20px'}}>
                 {(studentID === '') ? 
@@ -36,8 +47,20 @@ const Form = () => {
                                     <Step.Title>Check result and join Facebook group</Step.Title>
                                 </Step.Content>
                             </Step>
-                        </Step.Group> : ((fptDomain === '@fpt.edu.vn') ? <Messages submittedStudentID={studentID}/>: 
-                            <Message error content="Only check by FPT mail!!!" />) }
+                        </Step.Group> :  
+                        <div>
+                            <Dimmer.Dimmable dimmed={load}>
+                                {(fptDomain === '@fpt.edu.vn') ? <Messages submittedStudentID={studentID}/> : 
+                                <Message error content="Only check by FPT mail!!!" />}
+                                <Dimmer active={load} page>
+                                    <Image src={logo} style={{'opacity': '0.8'}} fluid/>
+                                    <Loader size="big">
+                                        Data Processing
+                                    </Loader>
+                                </Dimmer>
+                            </Dimmer.Dimmable>
+                        </div>
+                        }
             </Container>
         </div>
     )    

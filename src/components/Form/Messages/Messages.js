@@ -9,7 +9,7 @@ const Messages = ({submittedStudentID}) => {
     const submittedStudent = data.find(person => {
         return person.id === submittedStudentID;
     });
-
+    
 
     if(submittedStudent !== undefined){
         if(submittedStudent.ispassed === true){

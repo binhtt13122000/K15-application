@@ -28,7 +28,10 @@ const useStyle = createUseStyles({
         },
     }
 })
-const FormHeader = ({parentCallback}) => {
+
+    
+    
+const FormHeader = ({parentCallback, loadCallback}) => {
     const classes = useStyle();
     
     const responseGoogle = (response) => {

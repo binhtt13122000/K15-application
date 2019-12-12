@@ -4,7 +4,6 @@ import React from 'react';
 import Form from '../components/Form/Form'
 import Footer from '../components/Footer/Footer';
 import '../utils/style/App.css'
-
 const App = () => {
     return (
         <div className="App">
