@@ -17,10 +17,13 @@ const Form = () => {
     }
     useEffect(() => {
         window.scrollTo(0, 0);
-        setLoad(true);
-        setTimeout(() => {
+        const time = setTimeout(() => {
             setLoad(false);
-        }, 5000);
+        }, 3000);
+        return () => {
+            setLoad(true);
+            clearTimeout(time);
+        } 
     }
     , [studentID]);
     return(
@@ -49,12 +52,12 @@ const Form = () => {
                             </Step>
                         </Step.Group> :  
                         <div>
-                            <Dimmer.Dimmable dimmed={load}>
+                            <Dimmer.Dimmable blurring dimmed={load}>
                                 {(fptDomain === '@fpt.edu.vn') ? <Messages submittedStudentID={studentID}/> : 
                                 <Message error content="Only check by FPT mail!!!" />}
                                 <Dimmer active={load} page>
-                                    <Image src={logo} style={{'opacity': '0.8'}} fluid/>
-                                    <Loader size="big">
+                                    <Image src={logo} style={{'opacity': '0.2'}} size="big"/>
+                                    <Loader size="large">
                                         Data Processing
                                     </Loader>
                                 </Dimmer>
