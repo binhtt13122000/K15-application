@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer';
 import '../utils/style/App.css'
 import Wakeup from '../Wakeup/Wakeup'
 const interval = 1000 * 60;
-const uri = "http://localhost:3000/";
+const uri = "https://fcode-checker-app.herokuapp.com/";
 const App = () => {
     return (
         <div className="App">
