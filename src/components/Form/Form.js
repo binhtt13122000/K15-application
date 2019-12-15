@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import FormHeader from './FormHeader/FormHeader';
-// import MainForm from './MainForm/MainForm';
 import Messages from './Messages/Messages';
-import logo from '../../utils/img/logo.png';
-import {Container, Message, Step, Loader, Dimmer, Image} from 'semantic-ui-react'
+import axios from 'axios';
+import {Container, Message, Step, Loader, Dimmer} from 'semantic-ui-react'
 const Form = () => {
     
-    const [studentID, setStudentID] = useState('');
+    const [studentID, setStudentID] = useState('default');
     const [fptDomain, setFptDomail] = useState('');
     const [load, setLoad] = useState(true);
     const callback = (value) => {
@@ -15,6 +14,19 @@ const Form = () => {
         setStudentID(studentID);
         setFptDomail(domain);
     }
+    //
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const result = await axios(
+            `https://checking-app-k15.herokuapp.com/members/${studentID}`,
+          );
+          setData(result.data);
+        };
+        fetchData();
+      }, [studentID]);
+      //
     useEffect(() => {
         window.scrollTo(0, 0);
         const time = setTimeout(() => {
@@ -23,7 +35,7 @@ const Form = () => {
         return () => {
             setLoad(true);
             clearTimeout(time);
-        } 
+        }     
     }
     , [studentID]);
     return(
@@ -31,7 +43,7 @@ const Form = () => {
             <FormHeader parentCallback={callback} />
             {/* <MainForm /> */}
             <Container style={{'marginTop': '20px'}}>
-                {(studentID === '') ? 
+                {(studentID === 'default') ? 
                         <Step.Group ordered stackable="tablet" fluid>
                             <Step completed>
                                 <Step.Content>
@@ -53,10 +65,9 @@ const Form = () => {
                         </Step.Group> :  
                         <div>
                             <Dimmer.Dimmable blurring dimmed={load}>
-                                {(fptDomain === '@fpt.edu.vn') ? <Messages submittedStudentID={studentID}/> : 
+                                {(fptDomain === '@fpt.edu.vn') ? <Messages data={data}/> : 
                                 <Message error content="Only check by FPT mail!!!" />}
                                 <Dimmer active={load} page>
-                                    <Image src={logo} style={{'opacity': '0.2'}} size="big"/>
                                     <Loader size="large">
                                         Data Processing
                                     </Loader>

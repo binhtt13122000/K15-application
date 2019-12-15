@@ -1,10 +1,8 @@
 import React from 'react';
 import { Message,Grid, Button } from 'semantic-ui-react';
-import useAPI from '../../../API/useAPI'
 
-const Messages = ({submittedStudentID}) => {
-    console.log(submittedStudentID) ;
-    const {data} = useAPI(submittedStudentID);    
+const Messages = ({data}) => {
+    
     if(typeof data === 'object'){
         if(data.ispassed === true){
             return <Message info>
