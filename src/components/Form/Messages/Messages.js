@@ -3,19 +3,13 @@ import { Message,Grid, Button } from 'semantic-ui-react';
 import useAPI from '../../../API/useAPI'
 
 const Messages = ({submittedStudentID}) => {
-    const {data} = useAPI();    
-    
-    
-    const submittedStudent = data.find(person => {
-        return person.id === submittedStudentID;
-    });
-    
-
-    if(submittedStudent !== undefined){
-        if(submittedStudent.ispassed === true){
+    console.log(submittedStudentID) ;
+    const {data} = useAPI(submittedStudentID);    
+    if(typeof data === 'object'){
+        if(data.ispassed === true){
             return <Message info>
-                <p>Name: {submittedStudent.studentname}</p>
-                <p>Group: {submittedStudent.groupnumber}</p>
+                <p>Name: {data.studentname}</p>
+                <p>Group: {data.groupnumber}</p>
                 <h3>Congratulations!! Welcome to F-code!!!</h3>
                 <br />
                 <Grid textAlign="center" verticalAlign="middle">                
@@ -26,8 +20,8 @@ const Messages = ({submittedStudentID}) => {
             </Message>
         } else {
             return <Message error>
-                <p>Name: {submittedStudent.studentname}</p>
-                <p>Group: {submittedStudent.groupnumber}</p>
+                <p>Name: {data.studentname}</p>
+                <p>Group: {data.groupnumber}</p>
                 <h3>Goodbye!!! Good luck to you!!!</h3>
             </Message>
         }
